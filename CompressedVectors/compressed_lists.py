@@ -15,7 +15,7 @@ def check_lst_len(lst):
             sum += lst[i]
         return sum
     else:
-        raise Exception(("Input list: {} not in sutble format").format(lst))
+        raise Exception(("Input list: {} not in suitable format").format(lst))
 
 def multiply_lst(lst1, lst2):
     """
@@ -45,7 +45,7 @@ def multiply_lst(lst1, lst2):
 
     return res_scal, rem_lst1, rem_lst2
 
-def set_next_lst(lst1, lst2, tmp_lst1, tmp_lst2, index1, index2):
+def set_next_lst(lst1, lst2, index1, index2, tmp_lst1=None, tmp_lst2=None):
     """
     Function takes input lists of compressed vectors, current indexes and 
     remaining list of multiplying.
@@ -87,7 +87,7 @@ def scalar_multiply_lst(l1, l2):
     j = 0
 
     while i < len(l1) or j < len(l2):
-        lst1, lst2, i, j = set_next_lst(l1, l2, rem_lst1, rem_lst2, i, j)
+        lst1, lst2, i, j = set_next_lst(l1, l2, i, j, rem_lst1, rem_lst2)
         res, rem_lst1, rem_lst2 = multiply_lst(lst1, lst2)
         result_scal += res
 
@@ -95,8 +95,13 @@ def scalar_multiply_lst(l1, l2):
 
 def main():
 
-    l1 = [1, 4, 3, 4, 5, 3, 1, 5]
-    l2 = [3, 5, 4, 6, 5, 5]
+    l1 = input(("Enter first compressed list (empty input is default list"
+                " - [1,4,3,4,5,3,1,5]): "))
+    l2 = input(("Enter second list (empty input is default"
+                "list [3,5,4,6,5,5]): "))
+    if l1 == "" and l2 == "":
+        l1 = [1, 4, 3, 4, 5, 3, 1, 5]
+        l2 = [3, 5, 4, 6, 5, 5]
 
     if check_lst_len(l1) == check_lst_len(l2):
         scalar = scalar_multiply_lst(l1, l2)
