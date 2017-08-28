@@ -39,7 +39,7 @@ Go to tasks derectory:
 `python3 compressed_lists.py`
 
 Enter valid vectors in compressed form of just input empty string for default values.
-Get number of scalar multiplying. Have fun_)
+Get number of scalar multiplying. Have fun)
 
 
 
