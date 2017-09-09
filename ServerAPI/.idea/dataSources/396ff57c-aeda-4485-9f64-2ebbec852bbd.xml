@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="storage2">
+  <database-model serializer="dbm" rdbms="SQLITE" format-version="2.6">
+    <schema id="1">
+      <visible>1</visible>
+    </schema>
+    <table id="2" parent="1" name="keys"/>
+    <column id="3" parent="2" name="url">
+      <data-type>CHAR(0,-1)|12</data-type>
+    </column>
+    <column id="4" parent="2" name="password">
+      <data-type>VARCHAR(0,-1)|12</data-type>
+    </column>
+    <index id="5" parent="2" name="sqlite_autoindex_keys_2">
+      <name-surrogate>1</name-surrogate>
+      <columns>password</columns>
+      <desc-columns></desc-columns>
+      <unique>1</unique>
+    </index>
+    <key id="6" parent="2">
+      <columns>url</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>
